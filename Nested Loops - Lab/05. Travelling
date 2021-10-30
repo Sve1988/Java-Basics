@@ -1,0 +1,21 @@
+package Week6;
+
+import java.util.Scanner;
+
+public class Travelling {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String text = scanner.nextLine();
+
+        while(!text.equals("End")){
+            double budget = Double.parseDouble(scanner.nextLine());
+
+            while (budget > 0){
+                double income = Double.parseDouble(scanner.nextLine());
+                budget = budget - income;
+            }
+            System.out.println("Going to " + text + "!");
+            text = scanner.nextLine();
+        }
+    }
+}
