@@ -1,0 +1,25 @@
+package Week3;
+
+import java.util.Scanner;
+
+public class Cinema {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String movie = scanner.nextLine();
+        int a = Integer.parseInt(scanner.nextLine());
+        int b = Integer.parseInt(scanner.nextLine());
+        double price = 0.0;
+
+        if (movie.equals("Premiere")){
+            price = 12;
+        }
+        else if (movie.equals("Normal")){
+            price = 7.5;
+        }
+        else if (movie.equals("Discount")){
+            price = 5;
+        }
+        double totatPrice = a * b * price;
+        System.out.println(totatPrice);
+    }
+}
