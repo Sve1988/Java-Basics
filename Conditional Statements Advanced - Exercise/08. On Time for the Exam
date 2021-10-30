@@ -1,0 +1,52 @@
+package Week3;
+
+import java.util.Scanner;
+
+public class OnTimefortheExam {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int hourTest = Integer.parseInt(scanner.nextLine());
+        int minutesTest = Integer.parseInt(scanner.nextLine());
+        int hourArrive =Integer.parseInt(scanner.nextLine());
+        int minutesArrive = Integer.parseInt(scanner.nextLine());
+        int test = hourTest * 60 + minutesTest;
+        int arrive = hourArrive * 60 + minutesArrive;
+
+        if (arrive < (test -30)){
+            System.out.println("Early");
+            if ((test - arrive) < 60){
+                System.out.printf("%d minutes before the start", (test - arrive));
+            }
+            else {
+                int hour = (test - arrive) / 60;
+                int min = (test - arrive) % 60;
+                if (min < 10) {
+                    System.out.printf("%d:0%d hours before the start", hour, min);
+                }
+                else {
+                    System.out.printf("%d:%d hours before the start", hour, min);
+                }
+            }
+        }
+        else if (arrive >= (test - 30) && arrive <= test){
+            System.out.println("On time");
+            System.out.printf("%d minutes before the start", (test - arrive));
+        }
+        else if (arrive > test) {
+            System.out.println("Late");
+            if ((arrive - test) < 60){
+                System.out.printf("%d minutes after the start", (arrive - test));
+            }
+            else {
+                int hour = (arrive -test) / 60;
+                int min = (arrive - test) % 60;
+                if (min < 10) {
+                    System.out.printf("%d:0%d hours after the start", hour, min);
+                }
+                else {
+                    System.out.printf("%d:%d hours after the start", hour, min);
+                }
+            }
+        }
+    }
+}
