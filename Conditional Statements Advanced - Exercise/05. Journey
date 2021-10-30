@@ -1,0 +1,47 @@
+package Week3;
+
+import java.util.Scanner;
+
+public class Journey {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double budget = Double.parseDouble(scanner.nextLine());
+        String season = scanner.nextLine();
+        String destination = "";
+        String type = "";
+        if (budget <= 100) {
+            if (season.equals("summer")){
+                destination = "Bulgaria";
+                type = "Camp";
+                budget = 0.3 * budget;
+            }
+            else if (season.equals("winter")) {
+                destination = "Bulgaria";
+                type = "Hotel";
+                budget = 0.7 * budget;
+            }
+        }
+        else if (budget <= 1000){
+            if (season.equals("summer")) {
+                destination = "Balkans";
+                type = "Camp";
+                budget = 0.4 * budget;
+            }
+            else if (season.equals("winter")){
+                destination = "Balkans";
+                type = "Hotel";
+                budget = 0.8 * budget;
+            }
+        }
+        else {
+            if (season.equals("summer") || season.equals("winter")){
+                destination = "Europe";
+                type = "Hotel";
+                budget = 0.9 * budget;
+            }
+        }
+        System.out.printf("Somewhere in %s", destination);
+        System.out.println();
+        System.out.printf("%s - %.2f", type, budget);
+    }
+}
