@@ -1,0 +1,40 @@
+package Week5;
+
+import java.util.Scanner;
+
+public class Vacation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double need = Double.parseDouble(scanner.nextLine());
+        double owned = Double.parseDouble(scanner.nextLine());
+        int daysCounter = 0;
+        int spendCounter = 0;
+
+        while (owned < need && spendCounter <5){
+            String text = scanner.nextLine();
+            double money = Double.parseDouble(scanner.nextLine());
+            daysCounter++;
+
+            if (text.equals("save")){
+                owned = owned + money;
+                spendCounter = 0;
+            }
+            else if (text.equals("spend")){
+                owned = owned - money;
+                spendCounter++;
+                if ( owned < 0){
+                    owned = 0;
+                }
+            }
+            if (spendCounter == 5){
+                System.out.printf("You can't save the money.%n" +
+                        "%d", daysCounter);
+            }
+            if (owned >= need){
+                System.out.printf("You saved the money for %d days.", daysCounter);
+            }
+        }
+
+
+    }
+}
