@@ -1,0 +1,37 @@
+package Week5;
+
+import java.util.Scanner;
+
+public class Walking {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int counter = 0;
+        int enter = 0;
+        String text = scanner.nextLine();
+
+        while (counter < 10000) {
+            if (text.equals("Going home")){
+               text = scanner.nextLine();
+               enter = Integer.parseInt(text);
+               counter = counter + enter;
+               break;
+            }
+            else {
+                enter = Integer.parseInt(text);
+                counter = counter + enter;
+                if (counter >= 10000) {
+                    break;
+                } else {
+                    text = scanner.nextLine();
+                }
+            }
+        }
+        if (counter < 10000){
+            System.out.printf("%d more steps to reach goal.", (10000 - counter));
+        }
+        else {
+            System.out.println("Goal reached! Good job!");
+            System.out.printf("%d steps over the goal!", (counter - 10000));
+        }
+    }
+}
