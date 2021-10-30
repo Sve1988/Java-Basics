@@ -1,0 +1,68 @@
+package Week3;
+
+import java.util.Scanner;
+
+public class NewHouse {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String flowers = scanner.nextLine();
+        int count = Integer.parseInt(scanner.nextLine());
+        int budget = Integer.parseInt(scanner.nextLine());
+        double price = 0.0;
+        switch (flowers) {
+            case "Roses":
+                double priceRoses = 5;
+                if (count > 80) {
+                    price = priceRoses * 0.9;
+                }
+                else {
+                    price = priceRoses;
+                }
+                break;
+            case "Dahlias":
+                double priceDahias = 3.8;
+                if (count > 90) {
+                    price = priceDahias * 0.85;
+                }
+                else {
+                    price = priceDahias;
+                }
+                break;
+            case "Tulips":
+                double priceTulips = 2.8;
+                if (count > 80){
+                    price = priceTulips * 0.85;
+                }
+                else {
+                    price = priceTulips;
+                }
+                break;
+            case "Narcissus":
+                double priceNarcissus = 3;
+                if (count < 120) {
+                    price = priceNarcissus * 1.15;
+                }
+                else {
+                    price = priceNarcissus;
+                }
+                break;
+            case "Gladiolus":
+                double priceGladiolus = 2.5;
+                if (count < 80) {
+                    price = priceGladiolus * 1.2;
+                }
+                else {
+                    price = priceGladiolus;
+                }
+                break;
+        }
+        double totalCosts = count * price;
+
+        if (budget >= totalCosts){
+            System.out.printf("Hey, you have a great garden with %d %s and %.2f leva left.", count, flowers, (budget - totalCosts));
+        }
+        else {
+            System.out.printf("Not enough money, you need %.2f leva more.", (totalCosts - budget));
+        }
+    }
+}
