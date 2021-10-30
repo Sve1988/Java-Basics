@@ -1,0 +1,29 @@
+package Week6;
+
+import java.util.Scanner;
+
+public class EqualSumsEvenOddPosition {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int a = Integer.parseInt(scanner.nextLine());
+        int b = Integer.parseInt(scanner.nextLine());
+
+        for (int i = a; i <= b; i++) {
+            String current = "" + i;
+            int odd = 0;
+            int even =0;
+            for (int j = 0; j < current.length(); j++) {
+                int currentDigit = Integer.parseInt("" + current.charAt(j));
+                if (j % 2 == 0){
+                    even = even + currentDigit;
+                }
+                else {
+                    odd = odd + currentDigit;
+                }
+            }
+            if (even == odd){
+                System.out.print(i + " ");
+            }
+        }
+    }
+}
