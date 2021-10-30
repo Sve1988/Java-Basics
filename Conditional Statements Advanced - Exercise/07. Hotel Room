@@ -1,0 +1,48 @@
+package Week3;
+
+import java.util.Scanner;
+
+public class HotelRoom {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String month = scanner.nextLine();
+        int nights = Integer.parseInt(scanner.nextLine());
+        String type = "";
+        double priceAp = 0.0;
+        double priceSt = 0.0;
+        double priceApartment = 0.0;
+        double priceStudio = 0.0;
+
+        if (month.equals("May") || month.equals("October")) {
+            priceApartment = 65;
+            priceStudio = 50;
+            if (nights > 7 && nights <= 14){
+                priceStudio = priceStudio * 0.95;
+            }
+            else if (nights > 14){
+                priceStudio = priceStudio * 0.7;
+                priceApartment = priceApartment * 0.9;
+            }
+        }
+        else if (month.equals("June") || month.equals("September")){
+            priceApartment = 68.7;
+            priceStudio = 75.2;
+            if (nights > 14) {
+                priceStudio = priceStudio * 0.8;
+                priceApartment = priceApartment * 0.9;
+            }
+        }
+        else if (month.equals("July") || month.equals("August")){
+            priceStudio = 76;
+            priceApartment = 77;
+            if (nights > 14) {
+                priceApartment = priceApartment * 0.9;
+            }
+        }
+        priceAp = priceApartment * nights;
+        priceSt = priceStudio * nights;
+        System.out.printf("Apartment: %.2f lv.", priceAp);
+        System.out.println();
+        System.out.printf("Studio: %.2f lv.", priceSt);
+    }
+}
