@@ -1,0 +1,14 @@
+import java.util.Scanner;
+
+public class FishTank {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        double d = Double.parseDouble(scanner.nextLine());
+        double s = Double.parseDouble(scanner.nextLine());
+        double v = Double.parseDouble(scanner.nextLine());
+        double totalLiters = d * s * v / 1000;
+        double percent = Double.parseDouble(scanner.nextLine()) / 100;
+        double finalQty = totalLiters * (1 - percent);
+        System.out.printf("%.2f", finalQty);
+    }
+}
