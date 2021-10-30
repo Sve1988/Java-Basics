@@ -1,0 +1,27 @@
+package Week5;
+
+import java.util.Scanner;
+
+public class Ex5Lab {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String text = scanner.nextLine();
+        double balance = 0;
+
+        while (!text.equals("NoMoreMoney")) {
+            double amount = Double.parseDouble(text);
+            if (amount < 0){
+                System.out.println("Invalid operation!");
+              //  System.out.println(balance);
+                break;
+            }
+            else {
+                balance = balance + amount;
+                System.out.printf("Increase: %.2f", amount);
+                System.out.println();
+                text = scanner.nextLine();
+            }
+        }
+        System.out.printf("Total: %.2f", balance);
+    }
+}
