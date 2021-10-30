@@ -1,0 +1,39 @@
+package Week5;
+
+import java.util.Scanner;
+
+public class ExamPreparation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int bad = Integer.parseInt(scanner.nextLine());
+
+        int grade = 0;
+        int count = 0;
+        double year = 0;
+        double total = 0;
+        String last = "";
+
+        while (count < bad) {
+           String text = scanner.nextLine();
+            if (text.equals("Enough")) {
+                break;
+            }
+            grade = Integer.parseInt(scanner.nextLine());
+
+            if (grade <= 4){
+                count++;
+            }
+            total = total + grade;
+            year++;
+            last = text;
+        }
+        if (count == bad){
+            System.out.printf("You need a break, %d poor grades.", count);
+        }
+        else {
+            System.out.printf("Average score: %.2f%n" +
+                    "Number of problems: %.0f%n" +
+                    " Last problem: %s", (total / year), year, last);
+        }
+    }
+}
