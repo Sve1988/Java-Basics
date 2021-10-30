@@ -1,0 +1,46 @@
+package Week3;
+
+import java.util.Scanner;
+
+public class FishingBoat {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int budget = Integer.parseInt(scanner.nextLine());
+        String season = scanner.nextLine();
+        int count = Integer.parseInt(scanner.nextLine());
+        double loan = 0.0;
+
+        switch (season){
+            case "Spring":
+               loan = 3000;
+               break;
+            case "Summer":
+            case "Autumn":
+                loan = 4200;
+                break;
+            case"Winter":
+                loan = 2600;
+                break;
+        }
+        if (count <= 6){
+            loan = loan * 0.9;
+        }
+        else if (count <= 11){
+            loan = loan * 0.85;
+        }
+        else {
+            loan = loan * 0.75;
+        }
+
+        if (count % 2 == 0 && !season.equals("Autumn")){
+            loan = loan *0.95;
+        }
+
+        if (budget >= loan){
+            System.out.printf("Yes! You have %.2f leva left.", budget - loan);
+        }
+        else {
+            System.out.printf("Not enough money! You need %.2f leva.", loan - budget);
+        }
+    }
+}
